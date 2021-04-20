@@ -10,7 +10,7 @@ Here are some ideas to get you started:
 </p>
 
 <p align="center"> 
-  访客数量😄<br>
+  访问次数😄<br>
   <img src="https://profile-counter.glitch.me/ienyh/count.svg" />
 </p>
 
