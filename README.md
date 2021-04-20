@@ -14,7 +14,7 @@ Here are some ideas to get you started:
   <img src="https://profile-counter.glitch.me/ienyh/count.svg" />
 </p>
 
-- 🔭 最近忙着 [SmartWarning](https://github.com/ienyh)
+- 🔭 最近忙着 [SmartWarning(private now)](https://github.com/ienyh/SmartWarning)
 - 🌱 我正在学习 JavaScript 
 - 👯 一只前端小菜鸟正在学习学习学习
 - 📫 我的邮箱: 17513366907@163.com
