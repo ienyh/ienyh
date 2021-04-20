@@ -6,7 +6,7 @@ Here are some ideas to get you started:
 -->
 
 <p align="center">
-  <img src="https://github.com/JasonkayZK/jasonkayzk/blob/master/hello-world.gif" width="30%">
+  <img src="https://github.com/ienyh/ienyh/blob/main/resourses/hello-world.gif" width="30%">
 </p>
 
 <p align="center"> 
