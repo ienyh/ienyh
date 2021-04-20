@@ -1,16 +1,26 @@
-### Hi there 👋
+### Hi there, I'm [ienyh](https://github.com/ienyh) 👋
 
 <!--
 **ienyh/ienyh** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
 Here are some ideas to get you started:
+-->
 
-- 🔭 I’m currently working on ...
-- 🌱 我正在学习JavaScript
-- 👯 学习学习学习
+<p align="center">
+  <img src="https://github.com/JasonkayZK/jasonkayzk/blob/master/hello-world.gif" width="30%">
+</p>
+
+<p align="center"> 
+  访客数量😄<br>
+  <img src="https://profile-counter.glitch.me/ienyh/count.svg" />
+</p>
+
+- 🔭 最近忙着 [SmartWarning](https://github.com/ienyh)
+- 🌱 我正在学习 JavaScript 
+- 👯 一只前端小菜鸟正在学习学习学习
+- 📫 How to reach me: 17513366907@163.com
+<!--
 - 🤔 I’m looking for help with ...
 - 💬 Ask me about ...
-- 📫 How to reach me: 17513366907@163.com
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
