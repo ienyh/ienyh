@@ -17,7 +17,7 @@ Here are some ideas to get you started:
 - 🔭 最近忙着 [SmartWarning](https://github.com/ienyh)
 - 🌱 我正在学习 JavaScript 
 - 👯 一只前端小菜鸟正在学习学习学习
-- 📫 How to reach me: 17513366907@163.com
+- 📫 我的邮箱: 17513366907@163.com
 <!--
 - 🤔 I’m looking for help with ...
 - 💬 Ask me about ...
