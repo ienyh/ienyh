@@ -72,7 +72,7 @@ console.log(array_1.reduceRight((prev, cur, index, array) => prev + cur)); // 10
 
 ## 二、然后是 Array 的静态方法
 
-#### 2.1 `Array.from()`
+### 2.1 `Array.from()`
 
 `Array.from()`方法可以接受最多三个参数，第一个参数为一个类数组对象(即可迭代，或者是有`length`属性同时存在可索引属性)，第二个参数为可选参数，是一个映射函数参数，还有可选的第三个参数，用于指定映射函数参数中的`this`指向。
 
@@ -121,7 +121,7 @@ console.log(arr_3); // [ 1, 2, 3, 4 ]
 console.log(arr_1 === arr_3); // false
 ```
 
-#### 2.2 `Array.of()`
+### 2.2 `Array.of()`
 
 `Array.of()`方法用于将一组参数转化为数组，这个方法可以用于替代**ES6**之前常用的`Array.prototype.slice.call(arguments)`，对比起来这种方法就显得有些繁杂了
 
