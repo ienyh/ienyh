@@ -64,6 +64,18 @@ const part3 = function () {
   console.log(array_2.reduceRight((prev, cur, index, array) => prev + cur)); // 10
 };
 
+const part4 = function () {
+  const array_1 = [1, 2, 3, 4];
+  array_1.reverse();
+  console.log(array_1); // [ 4, 3, 2, 1 ]
+
+  const array_2 = [3, 1, 4, 2];
+  const compare = (a, b) => a - b; // 比较函数
+  array_2.sort(compare);
+  console.log(array_2); // [ 1, 2, 3, 4 ]
+};
+
 // part1();
 // part2();
-part3();
+// part3();
+part4();
