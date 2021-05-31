@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ch">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>防抖和节流</title>
+  </head>
+
+  <body>
+    <input type="text" id="input" />
+    <input type="button" id="button" value="点击" />
+
+    <script>
+      const input = document.querySelector("#input");
+
+      // 闭包的实际应用, 是闭包的实际应用
+      function debounce(delay) {
+        let timer;
+        return function (value) {
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            console.log(value);
+          }, delay);
+        };
+      }
+
+      const debounceFunc = debounce(1000);
+
+      input.addEventListener("keyup", event => {
+        debounceFunc(event.target.value);
+      });
+    </script>
+
+    <script>
+      const button = document.querySelector("#button");
+      // 节流函数，同样也是闭包实际的应用
+      function throttle(callback, wait) {
+        let timerOut;
+        return function () {
+          if (!timerOut) {
+            timerOut = setTimeout(() => {
+              callback();
+              timerOut = null;
+            }, wait);
+          }
+        };
+      }
+      button.addEventListener(
+        "click",
+        throttle(() => console.log("throttle"), 1500)
+      );
+    </script>
+  </body>
+</html>
