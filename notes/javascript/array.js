@@ -75,7 +75,61 @@ const part4 = function () {
   console.log(array_2); // [ 1, 2, 3, 4 ]
 };
 
+// 测试数组迭代方法
+const part5 = function () {
+  "user strict";
+  // 注意：这里 array[2] = undefined, array[3] = null, array[4]未初始化
+  const array = [1, 2, undefined, null, , 3, 4];
+  // array[6] 被删除
+  array.pop();
+
+  // value: 1, index: 0, array: 1,2,,,,3,4
+  // value: 2, index: 1, array: 1,2,,,,3,4
+  // value: undefined, index: 2, array: 1,2,,,,3,4
+  // value: null, index: 3, array: 1,2,,,,3,4
+  // value: 3, index: 5, array: 1,2,,,,3,4
+  // value: 4, index: 6, array: 1,2,,,,3,4
+  // 已删除或者未初始化的项将被跳过，而 undefined 和 null 不会被跳过
+  array.forEach(function (value, index, array) {
+    console.log(`value: ${value}, index: ${index}, array: ${array}`);
+  });
+
+  const array_2 = [1, 2, 3, 4].map(value => {
+    return value ** 2;
+  });
+  console.log(array_2); // [ 1, 4, 9, 16 ]
+  // ┌─────────┬────────┐
+  // │ (index) │ Values │
+  // ├─────────┼────────┤
+  // │    0    │   1    │
+  // │    1    │   4    │
+  // │    2    │   9    │
+  // │    3    │   16   │
+  // └─────────┴────────┘
+
+  console.log("====================");
+
+  let flag_every = [1, 2, 3, 4].every(value => value < 5);
+  console.log(flag_every); // true
+  flag_every = [1, 2, 3, 4].every(value => value < 3);
+  console.log(flag_every); // false
+
+  console.log("====================");
+
+  let flag_some = [1, 2, 3, 4].some(value => value > 3);
+  console.log(flag_some); // true
+  flag_some = [1, 2, 3, 4].some(value => value > 4);
+  console.log(flag_some); // false
+
+  console.log("====================");
+
+  // 这里可以过滤出数组中的偶数元素
+  const array_5 = [1, 2, 3, 4].filter(value => value % 2 === 0);
+  console.log(array_5); // [ 2, 4 ]
+};
+
 // part1();
 // part2();
 // part3();
-part4();
+// part4();
+part5();
