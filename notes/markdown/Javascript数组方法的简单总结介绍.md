@@ -1,18 +1,64 @@
-[comment]: <> "@[Javascript 部分数组方法的简单介绍](https://blog.csdn.net/qq_45265059/article/details/116942489)"
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-# <font face="Hack">Javascript 数组方法的简单总结介绍</font>
+- [<font face="Hack">Javascript 数组方法的总结介绍</font>](#font-facehackjavascript-%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E7%9A%84%E6%80%BB%E7%BB%93%E4%BB%8B%E7%BB%8Dfont)
+  - [写在前面](#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2)
+  - [一、先介绍数组实例方法](#%E4%B8%80%E5%85%88%E4%BB%8B%E7%BB%8D%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95)
+    - [1.1 栈和队列方法](#11-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E6%96%B9%E6%B3%95)
+      - [1.1.1 <font face="Hack">`push()`</font>](#111-font-facehackpushfont)
+      - [1.1.2 <font face="Hack">`pop()`</font>](#112-font-facehackpopfont)
+      - [1.1.3 <font face="Hack">`shift()`</font>](#113-font-facehackshiftfont)
+      - [1.1.4 <font face="Hack">`unshift()`</font>](#114-font-facehackunshiftfont)
+    - [1.2 归并方法](#12-%E5%BD%92%E5%B9%B6%E6%96%B9%E6%B3%95)
+      - [1.2.1 <font face="Hack">`reduce()`</font>](#121-font-facehackreducefont)
+      - [1.2.2 <font face="Hack">`reduceRight()`</font>](#122-font-facehackreducerightfont)
+    - [1.3 排序方法](#13-%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95)
+      - [1.3.1 <font face="Hack">`sort()`</font>](#131-font-facehacksortfont)
+      - [1.3.2 <font face="Hack">`reverse()`</font>](#132-font-facehackreversefont)
+    - [1.4 迭代方法](#14-%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95)
+      - [1.4.1 `forEach()`](#141-foreach)
+      - [1.4.2 `map()`](#142-map)
+      - [1.4.3 `every()`](#143-every)
+      - [1.4.4 `some()`](#144-some)
+      - [1.4.5 `filter()`](#145-filter)
+    - [1.5 操作方法](#15-%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95)
+      - [1.5.1 `concat()`](#151-concat)
+      - [1.5.2 `slice()`](#152-slice)
+      - [1.5.3 `splice()`](#153-splice)
+      - [1.5.4 `flat()` ES10 新增（2019）](#154-flat-es10-%E6%96%B0%E5%A2%9E2019)
+      - [1.5.5 `flatMap()` ES10 新增（2019）](#155-flatmap-es10-%E6%96%B0%E5%A2%9E2019)
+    - [1.6 搜索和位置方法](#16-%E6%90%9C%E7%B4%A2%E5%92%8C%E4%BD%8D%E7%BD%AE%E6%96%B9%E6%B3%95)
+      - [1.6.1 `indexOf()`](#161-indexof)
+      - [1.6.2 `lastIndexOf()`](#162-lastindexof)
+      - [1.6.3 `includes()` ES7 新增（2016）](#163-includes-es7-%E6%96%B0%E5%A2%9E2016)
+  - [二、然后是 Array 的静态方法](#%E4%BA%8C%E7%84%B6%E5%90%8E%E6%98%AF-array-%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95)
+    - [2.1 <font face="Hack">`Array.from()`</font>](#21-font-facehackarrayfromfont)
+    - [2.2 <font face="Hack">`Array.of()`</font>](#22-font-facehackarrayoffont)
+  - [Last](#last)
 
-​ 新手小白第一次发博客 😆，当是做笔记啦。记一下学习到的<font face="Hack">**Javascript 数组**</font>方法，写的不好各位见谅呀 😬，共同学习进步 😄。对了电脑端需要快速查询想要找到的方法的话，可以使用 <kbd><font face="Hack">**Ctrl/Command**</font></kbd> + <kbd><font face="Hack">**F**</font></kbd> 输入想要搜索的方法名来进行查找哦。(这篇暂时还没写完，希望自己可以坚持下去，加油 🤔)
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# <font face="Hack">Javascript 数组方法的总结介绍</font>
+
+## 写在前面
+
+> **坚持，记笔记 😀, 加油!**
+
+​ 新手小白第一次发博客 😆，当是做笔记啦。记一下学习到的<font face="Hack">**Javascript 数组**</font>方法，写的不好各位见谅呀 😬，共同学习进步 😄。
+
+因为数组的方法很多所以本文采用《Javascript 高级程序设计》一书中对数组方法进行的分类，方便查找使用，对了电脑端需要快速查询想要找到的方法的话，可以使用 <kbd><font face="Hack">**Ctrl/Command**</font></kbd> + <kbd><font face="Hack">**F**</font></kbd> 输入想要搜索的方法名来进行查找哦。
 
 ## 一、先介绍数组实例方法
 
 ### 1.1 栈和队列方法
 
-<font face="Hack">**Javascript**</font>中这几个方法让数组可以直接作为**栈**（**先进后出 FILO**）和**队列**（**先进先出 FIFO**）这两种数据结构来使用，使用`push()`和`pop()`可以让数组当成栈来使用，而使用`shift()`和`push()`可以数组当成队列来使用，另外还有一个`unshift()`方法（可以配合`pop()`模拟反向的队列）。
+<font face="Hack">**Javascript**</font>中这几个方法让数组可以直接作为**栈**（**先进后出 FILO**）和**队列**（**先进先出 FIFO**）这两种数据结构来使用（关于这两种数据结构可以参见[http://c.biancheng.net/data_structure/stack_queue/](http://c.biancheng.net/data_structure/stack_queue/)），
+
+使用`push()`和`pop()`可以让数组当成栈来使用，而使用`shift()`和`push()`可以数组当成队列来使用，另外还有一个`unshift()`方法（可以配合`pop()`模拟反向的队列）。
 
 #### 1.1.1 <font face="Hack">`push()`</font>
 
-`push()`方法可以接收任意数量的参数，将他们按照参数顺序添加到数组末尾，返回值是添加元素后数组的最新长度`length`
+`push()`方法可以接收任意数量的参数，将他们按照参数顺序添加到数组末尾，**返回值是添加元素后数组的最新长度`length`**
 
 ```javascript
 const array_1 = [1, 2, 3, 4];
@@ -22,7 +68,7 @@ console.log(array_1); // [ 1, 2, 3, 4, 5, 6 ]
 
 #### 1.1.2 <font face="Hack">`pop()`</font>
 
-而`pop()`方法执行的是与`push()`方法相反的操作，将会删除数组的最后一项并返回该项（同时也`length`会减 1）。
+而`pop()`方法执行的是与`push()`方法相反的操作，将会删除数组的最后一项并**返回该项**（同时也`length`会减 1）。
 
 ```javascript
 const array_2 = [1, 2, 3, 4];
@@ -32,7 +78,7 @@ console.log(array_2); // [ 1, 2, 3 ]
 
 #### 1.1.3 <font face="Hack">`shift()`</font>
 
-`shift()`方法将会删除数组的第一项并返回该项（同时也`length`会减 1）。
+`shift()`方法将会删除数组的第一项并**返回该项**（同时也`length`会减 1）。
 
 ```javascript
 const array_3 = [1, 2, 3, 4];
@@ -42,7 +88,7 @@ console.log(array_3); // [ 2, 3, 4 ]
 
 #### 1.1.4 <font face="Hack">`unshift()`</font>
 
-另外的`unshift()`方法执行的是与`shift()`方法相反的操作，该方法可以接收任意数量的参数并按照参数的顺序添加到数组前，方法会返回新的数组长度`length`。
+另外的`unshift()`方法执行的是与`shift()`方法相反的操作，该方法可以接收**任意数量的参数**并按照参数的顺序添加到数组前，方法会**返回新的数组长度`length`**。
 
 ```javascript
 const array_4 = [1, 2, 3, 4];
@@ -52,13 +98,14 @@ console.log(array_4); // [ -1, 0, 1, 2, 3, 4 ]
 
 ### 1.2 归并方法
 
-**Javascript**中有两个归并方法`reduce()`和`reduceRight()`这两个方法都会遍历数组的每一项，并有一个最终返回值。
+**Javascript**中有两个归并方法`reduce()`和`reduceRight()`这两个方法都会**遍历数组的每一项**，**并有一个最终返回值**。
 
 #### 1.2.1 <font face="Hack">`reduce()`</font>
 
 这个方法会接受两个参数：
 
-- 第一个参数为针对每一项都会执行的归并方法：<br/> 这个方法可以接受四个参数：**上一个归并值**、**当前项**、**当前项的索引**和**数组本身**，这个函数的返回值将会作为下一次归并时该函数的第一个参数，所以当`reduce()`没有接收到可选的第二个参数时，归并将会从数组的第二项开始，
+- 第一个参数为**针对每一项都会执行的归并方法**：<br/> 这个方法可以接受四个参数：**上一个归并值**、**当前项**、**当前项的索引**和**数组本身**，这个函数的返回值将会作为下一次归并时该函数的第一个参数，所以当`reduce()`没有接收到可选的第二个参数时，归并将会从数组的第二项开始，
+
 - 第二个参数为**可选的**以其为起点的初始值。
 
 可以使用`reduce()`方法轻松执行数组求和的操作：
@@ -70,7 +117,7 @@ console.log(array_1.reduce((prev, cur, index, array) => prev + cur)); // 10
 
 #### 1.2.2 <font face="Hack">`reduceRight()`</font>
 
-而`reduceRight()`方法的操作与`reduce()`方法相同，只是遍历元素的方向是从最后一项到第一项而已，其余的没有任何区别。
+而`reduceRight()`方法的操作与`reduce()`方法相同，只是遍历元素的方向是**从最后一项到第一项而已**，其余的没有任何区别。
 
 ```javascript
 const array_1 = [1, 2, 3, 4];
@@ -79,11 +126,11 @@ console.log(array_1.reduceRight((prev, cur, index, array) => prev + cur)); // 10
 
 ### 1.3 排序方法
 
-`sort()`和`reverse()`都会返回调用它们的数组的引用。
+`sort()`和`reverse()`都会**返回调用它们的数组的引用**。
 
 #### 1.3.1 <font face="Hack">`sort()`</font>
 
-`sort()`方法可以接收一个可选的**比较函数**，用于判断哪个值应该被排在前面。这个比较函数接受两个参数，如果第一个参数想要被排在前面就返回一个负值，反之则返回一个正值。
+`sort()`方法可以接收一个可选的**比较函数**，用于判断哪个值应该被排在前面。这个比较函数接受两个参数，如果第一个参数**想要被排在前面就返回一个负值**，**反之则返回一个正值**。
 
 ```javascript
 const array_2 = [3, 1, 4, 2];
@@ -94,7 +141,7 @@ console.log(array_2); // [ 1, 2, 3, 4 ]
 
 #### 1.3.2 <font face="Hack">`reverse()`</font>
 
-`reverse()`方法会将调用它的数组元素反向逆序排列。
+`reverse()`方法会将调用它的数组元素**反向逆序排列**。
 
 ```javascript
 const array_1 = [1, 2, 3, 4];
@@ -102,13 +149,137 @@ array_1.reverse();
 console.log(array_1); // [ 4, 3, 2, 1 ]
 ```
 
-## 二、然后是 Array 的静态方法
+### 1.4 迭代方法
+
+**`Javascript`数组**定义的迭代方法，分别是`forEach()`、`map()`、`every()`、`some()`和`filter()`，这几个方法都接受两个参数：**以每一项为参数运行的函数`callback`**，以及**可选的**作为函数运行上下文的**作用域对象`thisArg`**（即决定函数中`this`的值）。
+
+而这个**以每一项为参数运行的函数**会接受三个参数：**当前正在处理的数组元素`currentValue`**、**元素索引`index`**和**数组本身`array`**。
+
+#### 1.4.1 `forEach()`
+
+`forEach()` 方法为数组中含**有效值**（已删除或者未初始化的项将被跳过）的每一项执行一次 `callback` 函数。`forEach()` 方法不会改变调用它的数组，没有返回值（或者说返回值是`undefined`）
+
+```javascript
+// 注意：这里 array[2] = undefined, array[3] = null, array[4]未初始化
+const array = [1, 2, undefined, null, , 3, 4];
+// array[6] 被删除
+array.pop();
+
+// 已删除或者未初始化的项将被跳过，而 undefined 和 null 不会被跳过
+array.forEach(function (value, index, array) {
+  console.log(`value: ${value}, index: ${index}, array: ${array}`);
+});
+// value: 1, index: 0, array: 1,2,,,,3,4
+// value: 2, index: 1, array: 1,2,,,,3,4
+// value: undefined, index: 2, array: 1,2,,,,3,4
+// value: null, index: 3, array: 1,2,,,,3,4
+// value: 3, index: 5, array: 1,2,,,,3,4
+// value: 4, index: 6, array: 1,2,,,,3,4
+```
+
+#### 1.4.2 `map()`
+
+`map()`方法和`forEach()`有很多相似之处，比如都不会更改原始数组，但我们关注它们最大的区别：`map()`方法通过对每个数组元素执行函数来**返回一个新的数组**。
+
+```javascript
+// 当回调函数仅使用 value 参数时，可以省略索引和数组参数：
+const array_2 = [1, 2, 3, 4].map(value => {
+  return value ** 2; // ES7新特性（2016）：a ** b 指数运算符，它与 Math.pow(a, b)相同。
+});
+console.log(array_2); // [ 1, 4, 9, 16 ]
+```
+
+#### 1.4.3 `every()`
+
+对数组的每一项都运行传入的函数，如果**每一项函数都返回`true`**，**则`every()`方法返回`true`**
+
+```javascript
+let flag_every = [1, 2, 3, 4].every(value => value < 5);
+console.log(flag_every); // true
+flag_every = [1, 2, 3, 4].every(value => value < 3);
+console.log(flag_every); // false
+```
+
+#### 1.4.4 `some()`
+
+对数组的每一项都运行传入的函数，如果**有一项函数返回`true`**，**则`every()`方法返回`true`**
+
+```javascript
+let flag_some = [1, 2, 3, 4].some(value => value > 3);
+console.log(flag_some); // true
+flag_some = [1, 2, 3, 4].some(value => value > 4);
+console.log(flag_some); // false
+```
+
+#### 1.4.5 `filter()`
+
+`filter()`方法（_filter: 过滤、筛选_）创建一个**包含通过测试的数组元素**的新数组。
+
+```javascript
+// 这里可以过滤出数组中的偶数元素
+const array_5 = [1, 2, 3, 4].filter(value => value % 2 === 0);
+console.log(array_5); // [ 2, 4 ]
+```
+
+### 1.5 操作方法
+
+#### 1.5.1 `concat()`
+
+#### 1.5.2 `slice()`
+
+#### 1.5.3 `splice()`
+
+#### 1.5.4 `flat()` ES10 新增（2019）
+
+数组的成员有时还是数组，`flat()`用于**将嵌套的数组“打平”**，变成一维数组。该方法**返回一个新数组**，**对原数组没有影响**。
+
+```javascript
+const array_1 = [1, 2, 3, [4, 5, 6]];
+console.log(array_1.flat()); // [ 1, 2, 3, 4, 5, 6 ]
+```
+
+`flat()`默认只会“打平”一层，如果想要“打平”多层的嵌套数组，可以传一个整数给`flat()`方法作为参数，表示想要拉平的层数，_默认为 1_。
+
+```javascript
+const array_2 = [1, 2, [3, 4, [5, 6]]];
+console.log(array_2.flat()); // [ 1, 2, 3, 4, [ 5, 6 ] ]
+console.log(array_2.flat(2)); // [ 1, 2, 3, 4, 5, 6 ]
+```
+
+如果想要将**任意嵌套层数**的数组“打平”，可以使用`Infinity`作为参数（`Infinity` 是全局对象（_global object_）的一个属性，即它是一个全局变量，初始值是 `Number.POSITIVE_INFINITY`）
+
+```javascript
+const array_3 = [1, [2, [3, [4, [5, [6]]]]]];
+console.log(array_3.flat(Infinity)); // [ 1, 2, 3, 4, 5, 6 ]
+```
+
+#### 1.5.5 `flatMap()` ES10 新增（2019）
+
+`flatMap()`方法对原数组的每个成员执行一个函数，相当于**执行`map()`**,然后**对返回值组成的数组执行`flat()`方法**。该方法**返回一个新数组**，**不改变原数组**。
+
+注意`flatMap()`**只能展开一层数组**。
+
+```javascript
+// 注意相当于 先执行 map() 然后 flat() “打平”
+const array_4 = [1, 2, 3].flatMap(item => [item, item * 2]);
+console.log(array_4); // [ 1, 2, 2, 4, 3, 6 ]
+```
+
+### 1.6 搜索和位置方法
+
+#### 1.6.1 `indexOf()`
+
+#### 1.6.2 `lastIndexOf()`
+
+#### 1.6.3 `includes()` ES7 新增（2016）
+
+## 二、然后是 `Array` 的静态方法
 
 ### 2.1 <font face="Hack">`Array.from()`</font>
 
-`Array.from()`方法可以接受最多三个参数，第一个参数为一个类数组对象(即可迭代，或者是有`length`属性同时存在可索引属性)，第二个参数为可选参数，是一个映射函数参数，还有可选的第三个参数，用于指定映射函数参数中的`this`指向。
+`Array.from()`方法可以接受最多三个参数，第一个参数为一个**类数组对象**(即可迭代，或者是有`length`属性同时存在可索引属性)，第二个参数为可选参数，是一个**映射函数**参数，还有可选的第三个参数，用于**指定映射函数参数中的`this`指向**。
 
-`Array.from()`方法可以传入参数数组，`Map`和`Set`的实例等
+`Array.from()`方法可以传入的参数包括**数组**、`Map`和`Set`的实例等
 
 ```javascript
 const arr = Array.from([1, 2, 3, 4, 5]); // 传入一个数组
@@ -123,7 +294,7 @@ console.log(Array.from(_map)); // [ [ 1, 2 ], [ 3, 4 ] ]
 console.log(Array.from(_set)); // [ 1, 2, 3, 4 ]
 ```
 
-`Array.from()`方法也可以传入`arguments`和可迭代对象
+`Array.from()`方法也可以传入`arguments`和**可迭代对象**
 
 ```javascript
 function func() {
@@ -141,7 +312,7 @@ const obj = {
 console.log(Array.from(obj)); // [ 0, 1, 2, 3 ]
 ```
 
-`Array.from()`方法还可以用于对现有数组进行深拷贝
+`Array.from()`方法还可以用于对现有数组进行**深拷贝**（关于深浅拷贝可以参见文章[【JS】深拷贝与浅拷贝的区别，实现深拷贝的几种方法](https://www.cnblogs.com/echolun/p/7889848.html)）
 
 ```javascript
 const arr_1 = [1, 2, 3, 4];
@@ -155,7 +326,7 @@ console.log(arr_1 === arr_3); // false
 
 ### 2.2 <font face="Hack">`Array.of()`</font>
 
-`Array.of()`方法用于将一组参数转化为数组，这个方法可以用于替代**ES6**之前常用的`Array.prototype.slice.call(arguments)`，对比起来这种方法就显得有些繁杂了
+`Array.of()`方法用于将**一组参数**转化为**数组**，这个方法可以用于替代**ES6**之前常用的`Array.prototype.slice.call(arguments)`，对比起来这种方法就显得有些繁杂了
 
 ```javascript
 const arr_4 = Array.of(1, 2, 3, 4);
@@ -169,4 +340,6 @@ console.log(arr_5); // [ 1, '2', true, undefined ]
 如果有任何疑问欢迎在评论区友好交流呦 😆。
 
 [@Javascript 部分数组方法的简单介绍](https://blog.csdn.net/qq_45265059/article/details/116942489)
-欢迎关注[我](https://blog.csdn.net/qq_45265059)呦 😆，还有我的<font face="Hack">Github[@ienyh](https://github.com/ienyh)<font>一起学习哈哈哈 👨‍💻
+
+- 欢迎关注我呦 😆，[我的 CSDN 博客主页](https://blog.csdn.net/qq_45265059)。
+- 还有我的<font face="Hack">Github[@ienyh](https://github.com/ienyh)<font>一起学习哈哈哈 👨‍💻

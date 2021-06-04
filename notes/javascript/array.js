@@ -128,8 +128,26 @@ const part5 = function () {
   console.log(array_5); // [ 2, 4 ]
 };
 
+// 测试数组的操作方法
+const part6 = () => {
+  const array_1 = [1, 2, 3, [4, 5, 6]];
+  console.log(array_1.flat()); // [ 1, 2, 3, 4, 5, 6 ]
+
+  const array_2 = [1, 2, [3, 4, [5, 6]]];
+  console.log(array_2.flat()); // [ 1, 2, 3, 4, [ 5, 6 ] ]
+  console.log(array_2.flat(2)); // [ 1, 2, 3, 4, 5, 6 ]
+
+  const array_3 = [1, [2, [3, [4, [5, [6]]]]]];
+  console.log(array_3.flat(Infinity)); // [ 1, 2, 3, 4, 5, 6 ]
+
+  // 注意相当于 先执行 map() 然后 flat() “打平”
+  const array_4 = [1, 2, 3].flatMap(item => [item, item * 2]);
+  console.log(array_4); // [ 1, 2, 2, 4, 3, 6 ]
+};
+
 // part1();
 // part2();
 // part3();
 // part4();
-part5();
+// part5();
+part6();
