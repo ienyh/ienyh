@@ -145,9 +145,41 @@ const part6 = () => {
   console.log(array_4); // [ 1, 2, 2, 4, 3, 6 ]
 };
 
+const part7 = () => {
+  const array_1 = [1, 2, 3];
+  console.log(array_1.concat(4, [5, 6]));
+  // [ 1, 2, 3, 4, 5, 6 ]
+
+  const array_2 = [1, 2, 3, 4, 5, 6];
+  console.log(array_2.slice());
+  console.log(array_2.slice(3)); // [ 4, 5, 6 ]
+  console.log(array_2.slice(-3)); // [ 4, 5, 6 ]
+  console.log(array_2.slice(2, 4)); // [ 3, 4 ]
+  console.log(array_2.slice(-4, -2)); // [ 3, 4 ]
+
+  console.log("====================");
+  const array_3 = [1, 2, 3, 4, 5];
+  array_3.splice(1, 2);
+  console.log(array_3); // [ 1, 4, 5 ]
+
+  // array_3 = [ 1, 4, 5 ]
+  array_3.splice(1, 0, "ienyh", "hello");
+  console.log(array_3); // [ 1, 'ienyh', 'hello', 4, 5 ]
+
+  // array_3 = [ 1, 'ienyh', 'hello', 4, 5 ]
+  array_3.splice(3, 1, "world", "!");
+  console.log(array_3); // [ 1, 'ienyh', 'hello', 'world', '!', 5 ]
+
+  // [ 1, 'ienyh', 'hello', 'world', '!', 5 ]
+  console.log(array_3.splice(1, 4)); // 从索引 1 开始删除 4 个元素： [ 'ienyh', 'hello', 'world', '!' ]
+  console.log(array_3.splice(1, 0, 2, 3, 4)); // 从索引 1 开始插入元素 2，3，4： []
+  console.log(array_3); // [ 1, 2, 3, 4, 5 ]
+};
+
 // part1();
 // part2();
 // part3();
 // part4();
 // part5();
-part6();
+// part6();
+part7();

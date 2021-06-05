@@ -126,7 +126,7 @@ console.log(array_1.reduceRight((prev, cur, index, array) => prev + cur)); // 10
 
 ### 1.3 排序方法
 
-`sort()`和`reverse()`都会**返回调用它们的数组的引用**。
+`sort()`和`reverse()`都会返回调用它们的数组的引用，即**此方法会改变原数组**
 
 #### 1.3.1 <font face="Hack">`sort()`</font>
 
@@ -213,7 +213,7 @@ console.log(flag_some); // false
 
 #### 1.4.5 `filter()`
 
-`filter()`方法（_filter: 过滤、筛选_）创建一个**包含通过测试的数组元素**的新数组。
+`filter()`方法（_filter['fɪltər]: 过滤、筛选_）创建一个**包含通过测试的数组元素**的新数组。
 
 ```javascript
 // 这里可以过滤出数组中的偶数元素
@@ -225,9 +225,101 @@ console.log(array_5); // [ 2, 4 ]
 
 #### 1.5.1 `concat()`
 
+`concat()`方法用于连接两个或多个数组。
+
+该方法**不会改变现有的数组**，它首先会创建一个当前数组的副本，然后再把它的参数添加到副本末尾，最后**返回这个新构建的数组**。
+
+传入数组参数将会被“打平”
+
+```javascript
+const array_1 = [1, 2, 3];
+console.log(array_1.concat(4, [5, 6]));
+// [ 1, 2, 3, 4, 5, 6 ]
+```
+
 #### 1.5.2 `slice()`
 
+`slice()`用于**创建**一个包含原有数组中一个或者多个元素的**新数组**，**不会影响原数组**。
+
+`slice()`可以接收**一个**或者**两个**参数：
+
+- 当只有**一个参数**时：`slice()`会返回**从该索引开始（_包括当前索引元素_）到数组末尾**的所有元素；
+
+  - 传入**负值**的话，将会按照**数组长度`length`加上这个负值**来确定位置
+
+```javascript
+const array_2 = [1, 2, 3, 4, 5, 6];
+console.log(array_2.slice(3)); // [ 4, 5, 6 ]
+// 传入参数 -3 相当于传入 array_2.length - 3 = 3
+console.log(array_2.slice(-3)); // [ 4, 5, 6 ]
+```
+
+- 如果传入**两个参数**，则`slice()`会返回**从开始索引**（**包括当前索引元素**）到**结束索引**（**不包括结束索引位置的元素**）对应的所有元素（相当于**区间 _[x, y)_** 内的元素），
+
+  - 同样，传入**负值**的话，将会按照**数组长度`length`加上这个负值**来确定位置
+
+```javascript
+const array_2 = [1, 2, 3, 4, 5, 6];
+console.log(array_2.slice(2, 4)); // [ 3, 4 ]
+// 传入参数 (-4, -2) 相当于传入 (6 - 4 = 2, 6 - 2 = 4)
+console.log(array_2.slice(-4, -2)); // [ 3, 4 ]
+```
+
 #### 1.5.3 `splice()`
+
+`splice()`方法十分强大，它有许多使用方式。`splice()`的主要目的是**在数组中间插入元素**，**此方法会改变原数组**，有三种不同的方式去使用它：
+
+##### 删除
+
+需要给`splice()`传入**两个参数**：
+
+- 要删除的第一个元素的位置
+- 要删除的元素数量
+
+```javascript
+const array_3 = [1, 2, 3, 4, 5];
+array_3.splice(1, 2);
+console.log(array_3); // [ 1, 4, 5 ]
+```
+
+##### 插入
+
+需要给`splice()`传入**三个参数**
+
+- 开始位置
+- 0（代表要删除的元素数量为 0，即不删除）
+- 要插入的元素，第三个参数之后可以传任意多个参数，将全部会被插入到数组中
+
+```javascript
+// array_3 = [ 1, 4, 5 ]
+array_3.splice(1, 0, "hello", "ienyh");
+console.log(array_3); // [ 1, 'hello', 'ienyh', 4, 5 ]
+```
+
+##### 替换
+
+需要给`splice()`传入**三个参数**
+
+- 开始位置
+- 1（代表要删除的元素数量为 1，即替换掉当前这个位置的元素）
+- 替换的元素，同样第三个参数之后可以传任意多个参数，将全部会被插入到数组中
+
+```javascript
+// array_3 = [ 1, 'hello', 'ienyh', 4, 5 ]
+array_3.splice(3, 1, "world", "!");
+console.log(array_3); // [ 1, 'hello', 'ienyh', 'world', '!', 5 ]
+```
+
+**_`splice()` 方法的返回值是一个数组，包含从原数组中删除的元素（没有删除元素将会返回空数组 `[]`）_**
+
+```javascript
+// [ 1, 'ienyh', 'hello', 'world', '!', 5 ]
+// 从索引 1 开始删除 4 个元素
+console.log(array_3.splice(1, 4)); // [ 'ienyh', 'hello', 'world', '!' ]
+// 从索引 1 开始插入元素 2，3，4
+console.log(array_3.splice(1, 0, 2, 3, 4)); // []
+console.log(array_3); // [ 1, 2, 3, 4, 5 ]
+```
 
 #### 1.5.4 `flat()` ES10 新增（2019）
 
@@ -341,5 +433,5 @@ console.log(arr_5); // [ 1, '2', true, undefined ]
 
 [@Javascript 部分数组方法的简单介绍](https://blog.csdn.net/qq_45265059/article/details/116942489)
 
-- 欢迎关注我呦 😆，[我的 CSDN 博客主页](https://blog.csdn.net/qq_45265059)。
-- 还有我的<font face="Hack">Github[@ienyh](https://github.com/ienyh)<font>一起学习哈哈哈 👨‍💻
+- 欢迎关注我呦，[我的 CSDN 博客主页](https://blog.csdn.net/qq_45265059)😆。
+- 本文的[Github 地址](https://github.com/ienyh/ienyh/blob/main/notes/markdown/Javascript%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E7%9A%84%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%E4%BB%8B%E7%BB%8D.md)，欢迎点击查看，还有我的<font face="Hack">Github[@ienyh](https://github.com/ienyh)<font>主页，一起学习哈哈哈 👨‍💻
