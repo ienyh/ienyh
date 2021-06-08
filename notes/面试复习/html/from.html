@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>from</title>
+  </head>
+  <body>
+    <form action="/submit-cat-photo">
+      <label
+        ><input
+          id="indoor"
+          type="radio"
+          name="indoor-outdoor"
+          checked
+        />Indoor</label
+      >
+      <label
+        ><input id="outdoor" type="radio" name="indoor-outdoor" />Outdoor</label
+      ><br />
+
+      <label for="personality"
+        ><input id="load" type="checkbox" name="personality" checked />
+        load</label
+      >
+      <label for="personality"
+        ><input id="init" type="checkbox" name="personality" /> init</label
+      >
+      <label for="personality"
+        ><input id="date" type="checkbox" name="personality" /> date</label
+      ><br />
+
+      <input type="text" placeholder="猫咪" required />
+      <button type="submit">提交</button>
+    </form>
+  </body>
+</html>

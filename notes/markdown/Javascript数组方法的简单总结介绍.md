@@ -361,9 +361,54 @@ console.log(array_4); // [ 1, 2, 2, 4, 3, 6 ]
 
 #### 1.6.1 `indexOf()`
 
+`indexOf()`、`lastIndexOf()`和`includes()`这三个方法都可以接受两个参数：**要查找的元素**和一个**可选的起始搜索位置**（搜索时包含当前位置）。
+
+`indexOf()`方法**从数组开头（即第一项）开始查找**，返回查找到的**第一个元素在数组中的位置**（即数组下标），没找到将返回`-1`
+
+```javascript
+const array_1 = [1, 2, 3, 4, 3, 2, 1];
+console.log(array_1.indexOf(3)); // 2
+console.log(array_1.indexOf(3, 3)); // 4
+console.log(array_1.indexOf(5)); // -1
+```
+
 #### 1.6.2 `lastIndexOf()`
 
+与`indexOf()`方法用法一致，**从数组末尾（即最后一项）开始查找**，返回查找到的**第一个元素在数组中的位置**（即数组下标），没找到将返回`-1`
+
 #### 1.6.3 `includes()` ES7 新增（2016）
+
+`includes()`方法返回一个**布尔值（_boolean_）**，表示该数组是否包含要查找的元素
+
+`includes()`方法在比较时使用**完全相等`===`**
+
+```javascript
+// array_1 = [1, 2, 3, 4, 3, 2, 1];
+console.log(array_1.includes(3)); // true
+console.log(array_1.includes(3, 5)); // false
+```
+
+#### 1.6.4 `find()`
+
+`find()` 方法的参数和数组的迭代方法的参数一样，返回数组中**满足提供的测试函数（`callback`）**的**第一个元素的值**
+
+`find`方法对数组中的每一项元素执行一次 `callback` 函数，直至有一个 `callback` 返回 `true`。当找到了这样一个元素后，该方法会立即返回这个元素的值，否则返回 `undefined`
+
+```javascript
+// array_1 = [1, 2, 3, 4, 3, 2, 1];
+const number_1 = array_1.find(value => value > 2);
+console.log(number_1); // 3
+```
+
+#### 1.6.5 `findIndex()`
+
+`findIndex()`方法返回数组中**满足提供的测试函数（`callback`）**的**第一个元素的索引**（注意区别返回的是索引）。若没有找到对应元素则返回`-1`。
+
+```javascript
+// array_1 = [1, 2, 3, 4, 3, 2, 1];
+const number_2 = array_1.findIndex(value => value > 2);
+console.log(number_2); // 2
+```
 
 ## 二、然后是 `Array` 的静态方法
 

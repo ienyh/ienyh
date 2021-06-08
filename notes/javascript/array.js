@@ -176,10 +176,28 @@ const part7 = () => {
   console.log(array_3); // [ 1, 2, 3, 4, 5 ]
 };
 
+// 测试数组的搜索和位置方法
+const part8 = () => {
+  const array_1 = [1, 2, 3, 4, 3, 2, 1];
+  console.log(array_1.indexOf(3)); // 2
+  console.log(array_1.indexOf(3, 4)); // 4
+  console.log(array_1.indexOf(5)); // -1
+
+  console.log(array_1.includes(3)); // true
+  console.log(array_1.includes(3, 5)); // false
+
+  const number_1 = array_1.find(value => value > 2);
+  console.log(number_1); // 3
+
+  const number_2 = array_1.findIndex(value => value > 2);
+  console.log(number_2); // 2
+};
+
 // part1();
 // part2();
 // part3();
 // part4();
 // part5();
 // part6();
-part7();
+// part7();
+part8();
