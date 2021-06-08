@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>canvas</title>
+    <style>
+      #canvas {
+        background-color: beige;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="600px" height="400px"></canvas>
+
+    <script>
+      const canvas = document.querySelector("#canvas");
+      const cxt = canvas.getContext("2d");
+
+      // 画笔
+      // cxt.fillStyle = "#ff0000";
+      // 绘制矩形
+      // cxt.fillRect(0, 0, 150, 100);
+
+      // 绘制图片
+      const image = new Image(200, 200);
+      image.addEventListener("onload", () => {
+        cxt.drawImage(image, 0, 0);
+      });
+      image.src = "../image/cool.jpg";
+    </script>
+  </body>
+</html>
