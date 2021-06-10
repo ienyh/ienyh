@@ -36,6 +36,9 @@ const part1 = function () {
     length: 4,
   };
   console.log(Array.from(obj)); // [ 0, 1, 2, 3 ]
+
+  console.log(Array.isArray([1, 2, 3])); // true
+  console.log(Array.isArray({ a: 1, b: 2, c: 3 })); // false
 };
 
 const part2 = function () {
@@ -193,11 +196,11 @@ const part8 = () => {
   console.log(number_2); // 2
 };
 
-// part1();
+part1();
 // part2();
 // part3();
 // part4();
 // part5();
 // part6();
 // part7();
-part8();
+// part8();

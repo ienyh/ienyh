@@ -463,13 +463,22 @@ console.log(arr_1 === arr_3); // false
 
 ### 2.2 <font face="Hack">`Array.of()`</font>
 
-`Array.of()`方法用于将**一组参数**转化为**数组**，这个方法可以用于替代**ES6**之前常用的`Array.prototype.slice.call(arguments)`，对比起来这种方法就显得有些繁杂了
+`Array.of()`方法用于将**一组参数**转化为**数组**，这个方法可以用于替代 ES6 之前常用的`Array.prototype.slice.call(arguments)`，对比起来这种方法就显得有些繁杂了
 
 ```javascript
 const arr_4 = Array.of(1, 2, 3, 4);
 const arr_5 = Array.of(1, "2", true, undefined);
 console.log(arr_4); // [ 1, 2, 3, 4 ]
 console.log(arr_5); // [ 1, '2', true, undefined ]
+```
+
+### 2.3 <font face="Hack">`Array.isArray()`</font>
+
+这个方法的目的就是**确定一个值是否为数组**，返回一个**布尔值**
+
+```javascript
+console.log(Array.isArray([1, 2, 3])); // true
+console.log(Array.isArray({ a: 1, b: 2, c: 3 })); // false
 ```
 
 ## Last
