@@ -2,7 +2,7 @@
 
 # JSON 对象中 stringify() & parse() 方法的介绍
 
-> 坚持，记笔记 😀, 加油!
+> 坚持，写博客，记笔记 😀, 加油!
 
 ## 一、JSON.stringify()
 
