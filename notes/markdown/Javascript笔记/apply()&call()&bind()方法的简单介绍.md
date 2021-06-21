@@ -1,4 +1,4 @@
-# `apply()`&`call()`&`bind()`方法的简单介绍
+# apply()&call()&bind()方法的简单介绍
 
 ## 写在前面
 

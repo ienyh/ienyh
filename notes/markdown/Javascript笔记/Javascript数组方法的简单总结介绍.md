@@ -1,50 +1,10 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [<font face="Hack">Javascript 数组方法的总结介绍</font>](#font-facehackjavascript-%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E7%9A%84%E6%80%BB%E7%BB%93%E4%BB%8B%E7%BB%8Dfont)
-  - [写在前面](#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2)
-  - [一、先介绍数组实例方法](#%E4%B8%80%E5%85%88%E4%BB%8B%E7%BB%8D%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95)
-    - [1.1 栈和队列方法](#11-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E6%96%B9%E6%B3%95)
-      - [1.1.1 <font face="Hack">`push()`</font>](#111-font-facehackpushfont)
-      - [1.1.2 <font face="Hack">`pop()`</font>](#112-font-facehackpopfont)
-      - [1.1.3 <font face="Hack">`shift()`</font>](#113-font-facehackshiftfont)
-      - [1.1.4 <font face="Hack">`unshift()`</font>](#114-font-facehackunshiftfont)
-    - [1.2 归并方法](#12-%E5%BD%92%E5%B9%B6%E6%96%B9%E6%B3%95)
-      - [1.2.1 <font face="Hack">`reduce()`</font>](#121-font-facehackreducefont)
-      - [1.2.2 <font face="Hack">`reduceRight()`</font>](#122-font-facehackreducerightfont)
-    - [1.3 排序方法](#13-%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95)
-      - [1.3.1 <font face="Hack">`sort()`</font>](#131-font-facehacksortfont)
-      - [1.3.2 <font face="Hack">`reverse()`</font>](#132-font-facehackreversefont)
-    - [1.4 迭代方法](#14-%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95)
-      - [1.4.1 `forEach()`](#141-foreach)
-      - [1.4.2 `map()`](#142-map)
-      - [1.4.3 `every()`](#143-every)
-      - [1.4.4 `some()`](#144-some)
-      - [1.4.5 `filter()`](#145-filter)
-    - [1.5 操作方法](#15-%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95)
-      - [1.5.1 `concat()`](#151-concat)
-      - [1.5.2 `slice()`](#152-slice)
-      - [1.5.3 `splice()`](#153-splice)
-      - [1.5.4 `flat()` ES10 新增（2019）](#154-flat-es10-%E6%96%B0%E5%A2%9E2019)
-      - [1.5.5 `flatMap()` ES10 新增（2019）](#155-flatmap-es10-%E6%96%B0%E5%A2%9E2019)
-    - [1.6 搜索和位置方法](#16-%E6%90%9C%E7%B4%A2%E5%92%8C%E4%BD%8D%E7%BD%AE%E6%96%B9%E6%B3%95)
-      - [1.6.1 `indexOf()`](#161-indexof)
-      - [1.6.2 `lastIndexOf()`](#162-lastindexof)
-      - [1.6.3 `includes()` ES7 新增（2016）](#163-includes-es7-%E6%96%B0%E5%A2%9E2016)
-  - [二、然后是 Array 的静态方法](#%E4%BA%8C%E7%84%B6%E5%90%8E%E6%98%AF-array-%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95)
-    - [2.1 <font face="Hack">`Array.from()`</font>](#21-font-facehackarrayfromfont)
-    - [2.2 <font face="Hack">`Array.of()`</font>](#22-font-facehackarrayoffont)
-  - [Last](#last)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# <font face="Hack">Javascript 数组方法的总结介绍</font>
+# JavaScript 数组方法的总结介绍
 
 ## 写在前面
 
 > **坚持，记笔记 😀, 加油!**
 
-​ 新手小白第一次发博客 😆，当是做笔记啦。记一下学习到的<font face="Hack">**Javascript 数组**</font>方法，写的不好各位见谅呀 😬，共同学习进步 😄。
+ 新手小白第一次发博客 😆，当是做笔记啦。记一下学习到的<font face="Hack">**Javascript 数组**</font>方法，写的不好各位见谅呀 😬，共同学习进步 😄。
 
 因为数组的方法很多所以本文采用《Javascript 高级程序设计》一书中对数组方法进行的分类，方便查找使用，对了电脑端需要快速查询想要找到的方法的话，可以使用 <kbd><font face="Hack">**Ctrl/Command**</font></kbd> + <kbd><font face="Hack">**F**</font></kbd> 输入想要搜索的方法名来进行查找哦。
 
@@ -410,6 +370,10 @@ const number_2 = array_1.findIndex(value => value > 2);
 console.log(number_2); // 2
 ```
 
+### 1.7 转换方法
+
+#### `join()`
+
 ## 二、然后是 `Array` 的静态方法
 
 ### 2.1 <font face="Hack">`Array.from()`</font>
@@ -481,7 +445,7 @@ console.log(Array.isArray([1, 2, 3])); // true
 console.log(Array.isArray({ a: 1, b: 2, c: 3 })); // false
 ```
 
-## Last
+## 三、Last
 
 如果有任何疑问欢迎在评论区友好交流呦 😆。
 
@@ -489,3 +453,4 @@ console.log(Array.isArray({ a: 1, b: 2, c: 3 })); // false
 
 - 欢迎关注我呦，[我的 CSDN 博客主页](https://blog.csdn.net/qq_45265059)😆。
 - 本文的[Github 地址](https://github.com/ienyh/ienyh/blob/main/notes/markdown/Javascript%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E7%9A%84%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93%E4%BB%8B%E7%BB%8D.md)，欢迎点击查看，还有我的<font face="Hack">Github[@ienyh](https://github.com/ienyh)<font>主页，一起学习哈哈哈 👨‍💻
+

@@ -23,7 +23,6 @@ const a = 3;
 
 ## 四、总结 & Last
 
-如果有任何疑问欢迎在评论区友好交流呦 😆。
+欢迎在评论区交流学习，一起学习哈哈哈 👨‍💻！
 
-- 欢迎关注我呦 😆，[我的 CSDN 博客主页](https://blog.csdn.net/qq_45265059)。
-- 还有我的<font face="Hack">Github[@ienyh](https://github.com/ienyh)<font>一起学习哈哈哈 👨‍💻
+点个赞，点个关注吧 😆。

@@ -13,11 +13,12 @@
 关于`axios`拦截器（_Interceptors_）的设置代码官方给出了一份样式代码，可见`axios`的[github 仓库地址](https://github.com/axios/axios#interceptors)
 
 ```javascript
-import axios from "axios";
-import { getToken } from "./localStorage";
+import axios from "axios"; // npm install axios --save
+import { getToken } from "./localStorage"; // 这里是获取 token 的操作
 
 const BASE_URL = "https://127.0.0.1:8000/api";
 
+// 创建一个 axios 的实例 instance
 const instance = axios.create({
   baseURL: BASE_URL,
   timeout: 5000,
@@ -29,7 +30,7 @@ const instance = axios.create({
 
 /**
  * Add a request interceptor
- * 全局请求拦截
+ * 全局请求拦截器
  */
 instance.interceptors.request.use(
   // config: 请求发送前的配置对象
@@ -48,7 +49,7 @@ instance.interceptors.request.use(
 
 /**
  * Add a response interceptor
- * 全局响应拦截
+ * 全局响应拦截器
  */
 instance.interceptors.response.use(
   function (response) {
@@ -62,7 +63,11 @@ instance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+```
 
+使用刚刚创建的`axios`实例封装`get`和`post`请求
+
+```javascript
 export function get(shortURL, params?) {
   return instance.get(BASE_URL + shortURL, {
     params,

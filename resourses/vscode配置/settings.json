@@ -1,0 +1,85 @@
+{
+  "cSpell.userWords": [
+      "ienyh"
+  ],
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontSize": 18,
+  "editor.tabSize": 2,
+  "workbench.colorTheme": "One Dark Pro",
+
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "prettier.arrowParens": "avoid",
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true, //  #让函数(名)和后面的括号之间加个空格
+  "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "editor.fontFamily": "Hack, Monaco, Fira Code, Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.tokenColorCustomizations": {
+      // 注释
+      "comments": {
+          // 设置字体样式 加粗 下划线 斜体等
+          "fontStyle": " ", // bold italic underline 
+          // 设置字体颜色
+          // "foreground": "#4caee2"
+          "foreground": "#aaaaaa"
+      }, 
+      // 关键字
+      "keywords": {
+          "fontStyle": "bold italic"
+      }, 
+      // 变量名
+      "variables": {
+          "fontStyle": "italic",
+          // "foreground": "#aaaaaa"
+      },
+      // 字符串
+      "strings": {
+          "fontStyle": " ",
+          // "foreground": "#aaaaaa"
+      }, 
+      // 函数名
+      "functions": {
+          "fontStyle": "bold",
+          // "foreground":"#5b99fcc9", //"#aaaaaa" 
+      }, 
+      // "numbers": "#AE81FF" // 数字
+  },
+
+  "material-icon-theme.folders.theme": "specific",
+  "material-icon-theme.activeIconPack": "react_redux",
+  
+  "debug.node.showUseWslIsDeprecatedWarning": false,
+  "files.associations": {
+      "*.cjson": "jsonc",
+      "*.wxss": "css",
+      "*.wxs": "javascript"
+  },
+  "emmet.includeLanguages": {
+      "wxml": "html"
+  },
+  "minapp-vscode.disableAutoConfig": true,
+  "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "explorer.confirmDragAndDrop": false,
+  "[css]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.enableFiletypes": [
+      "!vue"
+  ],
+}

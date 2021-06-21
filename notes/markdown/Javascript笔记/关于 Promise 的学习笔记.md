@@ -53,7 +53,7 @@ p.then(data => {
     console.log(err);
   })
   .finally(() => {
-    console.log();
+    console.log("1");
   });
 ```
 
@@ -75,7 +75,37 @@ p.then(data => {
 
 #### 2.1.2 `catch()`
 
+`Promise.prototype.catch()`用于捕获错误，行为与`Promise.prototype.then(null, rejection)`的行为一致，用于指定发生错误时的回调函数。
+
+而且，`Promise` 对象的错误**具有“冒泡”性质**，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个 `catch` 语句捕获。
+
+```javascript
+p.then(data => console.log(data))
+  // 处理前一个回调函数运行时发生的错误
+  .catch(err => {
+    console.log(err);
+  });
+```
+
 #### 2.1.3 `finally()`
+
+`finally()` 方法返回一个`Promise`对象。
+
+不管 promise 最后的状态是*fulfilled*或者是*rejected*，在执行完`then()`或`catch()`指定的回调函数以后，**都会执行`finally()`方法指定的回调函数**。
+
+避免了同样的语句需要在`then()`和`catch()`中各写一次的情况
+
+```javascript
+p.then(data => {
+  console.log(data);
+})
+  .catch(err => {
+    console.log(err);
+  })
+  .finally(() => {
+    console.log("finally");
+  });
+```
 
 ### 2.2 静态方法
 
