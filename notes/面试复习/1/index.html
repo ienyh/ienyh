@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>主页</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <header>
+      <ul id="menu-ul" class="nav nav-pills" style="margin: 5px">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">查询日志</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">提交日志</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            data-toggle="dropdown"
+            href="#"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >用户管理</a
+          >
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">用户管理</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">退出登录</a>
+          </div>
+        </li>
+      </ul>
+    </header>
+
+    <div id="content">
+      <div class="search">
+        <div class="input-group" style="width: 400px">
+          <input type="text" class="form-control" placeholder="Search for..." />
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button">查询</button>
+          </span>
+          <span class="input-group-btn">
+            <button
+              class="btn btn-link"
+              data-toggle="modal"
+              data-target="#exampleModal"
+              onclick=""
+            >
+              新增
+            </button>
+          </span>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">博客管理表</div>
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th>日期</th>
+                <th>标题</th>
+                <th>摘要</th>
+                <th>备注</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="notes_table">
+              <tr>
+                <th>100001</th>
+                <th>2021-06-16</th>
+                <th>Java</th>
+                <th>暂无</th>
+                <th>无</th>
+                <th>通过</th>
+                <th>
+                  <a href="#">修改</a>
+                  &nbsp;
+                  <a href="#">删除</a>
+                </th>
+              </tr>
+              <tr>
+                <th>100002</th>
+                <th>2021-06-19</th>
+                <th>Python</th>
+                <th>暂无</th>
+                <th>无</th>
+                <th>通过</th>
+                <th>
+                  <a href="#">修改</a>
+                  &nbsp;
+                  <a href="#">删除</a>
+                </th>
+              </tr>
+              <!-- <tr>
+                <th>100003</th>
+                <th>2021-06-22</th>
+                <th>C++</th>
+                <th>暂无</th>
+                <th>无</th>
+                <th>通过</th>
+                <th>
+                  <a href="#">修改</a>
+                  &nbsp;
+                  <a href="#">删除</a>
+                </th>
+              </tr> -->
+              <tr>
+                <th>100004</th>
+                <th>2021-06-23</th>
+                <th>JavaScript</th>
+                <th>暂无</th>
+                <th>无</th>
+                <th>通过</th>
+                <th>
+                  <a href="#">修改</a>
+                  &nbsp;
+                  <a href="#">删除</a>
+                </th>
+              </tr>
+              <tr>
+                <th>100005</th>
+                <th>2021-06-25</th>
+                <th>201819926</th>
+                <th>暂无</th>
+                <th>201819926chenyh</th>
+                <th>审核中</th>
+                <th>
+                  <a href="#">修改</a>
+                  &nbsp;
+                  <a href="#">删除</a>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">添加博客</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form
+                id="addfrom"
+                name="addfrom"
+                class="form-horizontal"
+                role="from"
+              >
+                <fieldset>
+                  <div class="control-group" style="display: none">
+                    <!-- Text input-->
+                    <label class="control-label"></label>
+                    <div class="controls">
+                      <input id="uid" name="uid" value="root" hidden />
+                      <p class="help-block"></p>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="name">姓名: </label>
+                    <input
+                      class="input-mini"
+                      value="root"
+                      id="name"
+                      readonly
+                      disabled
+                    />
+                    <p class="help-block"></p>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="date">日期: </label>
+                    <input id="date" type="date" name="date" id="time" />
+                    <p class="help-block"></p>
+                  </div>
+
+                  <div class="control-group">
+                    <label for="title">标题: </label>
+                    <input type="text" id="title" />
+                  </div>
+
+                  <div class="control-group">
+                    <!-- Textarea -->
+                    <label class="control-label">内容</label>
+                    <div class="controls">
+                      <div class="textarea">
+                        <textarea
+                          type=""
+                          class="form-control"
+                          name="describe"
+                          rows="5"
+                          cols="10"
+                        >
+                        </textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">状态: </label>
+                    <select name="status">
+                      <option value="审核中" selected>审核中</option>
+                      <option value="通过">通过</option>
+                      <option value="未通过">未通过</option>
+                    </select>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">备注</label>
+                    <div class="controls">
+                      <div class="textarea">
+                        <textarea
+                          type=""
+                          class="form-control"
+                          name="remark"
+                          rows="4"
+                          cols="10"
+                        >
+                        </textarea>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                取消
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="submitForm"
+              >
+                确认
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

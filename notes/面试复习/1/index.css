@@ -1,0 +1,105 @@
+/**********************全局样式开始**********************/
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Microsoft YaHei UI Light";
+  font-size: 14px;
+}
+
+/***********index.jsp样式开始***********************/
+header {
+  display: block;
+  width: 76%;
+  height: 100%;
+  margin: 5px auto;
+  text-align: center;
+  padding: 5px;
+}
+
+ul > li {
+  margin-right: 3px;
+}
+
+#menu-ul {
+  margin: 0 auto;
+}
+
+#nav {
+  width: 16%;
+  background-color: #e0e0e0;
+  height: 100%;
+  float: left;
+}
+#nav .menu {
+  height: 50px;
+  line-height: 50px;
+  text-indent: 18px;
+  font-size: 18px;
+  background-color: #d0d0d0;
+  border: 1px solid #eee8dd;
+  cursor: hand;
+  overflow-y: hidden;
+}
+
+.select {
+  height: 100px;
+  text-align: left;
+  font-weight: normal;
+  background-color: #e0e0e0;
+}
+.select a {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  text-indent: 18px;
+  text-align: left;
+  font-weight: normal;
+  color: #272727;
+}
+a:hover {
+  color: #fff;
+  background-color: gray;
+}
+.show {
+  display: block;
+}
+
+/*工作内容操作*/
+#content {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+#content .search {
+  height: 40px;
+  margin: 20px 40px 10px 40px;
+  padding: 2px;
+  background-color: #e0e0e0;
+}
+
+#content .search .text {
+  margin: 7px 0 7px 20px;
+  line-height: 36px;
+  height: 36px;
+  width: 260px;
+  font-size: 14px;
+}
+#content .search .submit {
+  line-height: 34px;
+  height: 34px;
+  width: 42px;
+  border: 0px inset;
+  color: #fff;
+  background-color: #0080ff;
+  font-size: 16px;
+  border-radius: 4px;
+}
+/********************表单样式开始************************/
+.display_none {
+  display: none;
+}

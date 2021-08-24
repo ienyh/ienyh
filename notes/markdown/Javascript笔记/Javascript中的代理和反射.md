@@ -39,13 +39,13 @@ console.log(proxy.name); // ienyh_2
 
 捕获器一共有 *13* 种分别是：`get()`、`set()`、`has()`、`defineProperty()`、`getOwnPropertyDescriptor()`、`deleteProperty()`、`ownKeys()`、`getPrototypeOf()`、`setPrototypeOf()`、`isExtension()`、`preventExtensions()`、`apply()`、`construct()`
 
-这里暂时先只介绍`get()`和`set()`这两种
+这里暂时先只介绍 `get()` 和 `set()` 这两种
 
 #### 1. `get()`
 
-当代理对象**执行`get()`操作**（指 `proxy[property]` 或 `proxy.property` 等读取操作）时就会触发`get()`捕获器，当然这个`get()`操作并不是 *ECMAScript* 对象可以直接调用的方法，而是由于 `proxy[property]` 或 `proxy.property` 等取值操作触发的。
+当代理对象**执行 `get()` 操作**（指 `proxy[property]` 或 `proxy.property` 等读取操作）时就会触发 `get()` 捕获器，当然这个 `get()` 操作并不是 *ECMAScript* 对象可以直接调用的方法，而是由于 `proxy[property]` 或 `proxy.property` 等取值操作触发的。
 
-`get` 方法用于**拦截某个属性的读取操作**，可以接受三个参数，依次为**目标对象 `target`**、**属性名 `key`**和 **代理对象 `proxy`** （可选）。
+`get` 方法用于**拦截某个属性的读取操作**，可以接受三个参数，依次为**目标对象 `target`**、**属性名 `key`** 和 **代理对象 `proxy`** （可选）。
 
 注意：是在**代理对象**上执行上面的操作才会触发捕获器的行为，在原目标对象上执行这些操作依然是原始行为。
 
@@ -93,7 +93,7 @@ console.log(student); // { name: 'ienyh', age: 12, gender: 'male' }
 
 ### 可撤销的代理
 
-使用`new Proxy()` 创建的**普通代理是不可撤销的**，普通代理对象和目标对象之间的练习是一直存在的，但有时候我们是需要切断这种联系的。
+使用 `new Proxy()` 创建的**普通代理是不可撤销的**，普通代理对象和目标对象之间的练习是一直存在的，但有时候我们是需要切断这种联系的。
 
 我们可以**使用 `Proxy` 类的静态方法 `Proxy.revocable()` 来生成一个可以撤销的代理对象**
 
@@ -119,7 +119,7 @@ revoke()
 
 在 `Object.prototype` 上有的很多方法，`Reflect` 对象上也有。
 
-> 通常来说，**`Object`原型上的方法适用于通用程序**，而**反射方法更适用于细粒度的对象控制与操作**。
+> 通常来说，**`Object` 原型上的方法适用于通用程序**，而**反射方法更适用于细粒度的对象控制与操作**。
 
 我们可以轻松的应用它们：
 
@@ -155,9 +155,26 @@ proxy.age; // [get]: age
 | `Reflect.apply()`                    | `(target, thisArg, argumentList)`     | 返回值无限制                 |            |
 | `Reflect.construct()`                | `(target, argumentList, newTarget)`   | 必须返回一个对象             |            |
 
+```javascript
+const obj = {
+	name: "ienyh",
+  age: 21,
+  hobby: [ "eat", "sleep", "coding" ],
+  school: { name: "a school" },
+};
+```
+
 #### `Reflect.get()`
 
 #### `Reflect.set()`
+
+*Reflect.set(target, propertyKey, value, receiver): Boolean* 
+
+参数 receiver 可选，返回一个 Boolean 值表明是否成功设置属性。
+
+```javascript
+Reflect.set(obj, "name", "chenyh");
+```
 
 #### `Reflect.has()`
 
@@ -178,6 +195,16 @@ proxy.age; // [get]: age
 #### `Reflect.preventExtensions()`
 
 #### `Reflect.apply()`
+
+*Reflect.apply(Func, thisObj, argumentList)*
+
+- *Func*: 需要执行的函数
+- *thisObj*: 需要执行函数的上下文 this
+- *argumentList*: 是一个数组或者伪数组，会作为执行函数的参数
+
+```javascript
+Reflect.apply(Math.floor, undefined, [2.4]);
+```
 
 #### `Reflect.construct()`
 

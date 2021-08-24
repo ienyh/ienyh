@@ -4,13 +4,13 @@
 
 > **坚持，记笔记 😀, 加油!**
 
-## 一、`axios` 介绍
+## 一、axios 介绍
 
 `axios` 是一个轻量的 HTTP 客户端，它基于 `XMLHttpRequest` 服务来执行 HTTP 请求，支持丰富的配置，支持 `Promise`，支持浏览器端和 Node.js 端。
 
-## 二、`axios` 拦截器以及 get 和 post 请求的封装
+## 二、axios 拦截器以及 get 和 post 请求的封装
 
-关于`axios`拦截器（_Interceptors_）的设置代码官方给出了一份样式代码，可见`axios`的[github 仓库地址](https://github.com/axios/axios#interceptors)
+关于 `axios` 拦截器（_Interceptors_）的设置代码官方给出了一份样式代码，可见 `axios` 的 [*github仓库地址*](https://github.com/axios/axios#interceptors)
 
 ```javascript
 import axios from "axios"; // npm install axios --save
@@ -65,7 +65,7 @@ instance.interceptors.response.use(
 );
 ```
 
-使用刚刚创建的`axios`实例封装`get`和`post`请求
+使用刚刚创建的 `axios` 实例封装 `get` 和 `post` 请求
 
 ```javascript
 export function get(shortURL, params?) {
