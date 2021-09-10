@@ -60,11 +60,13 @@ console.log(array_4); // [ -1, 0, 1, 2, 3, 4 ]
 
 **Javascript**中有两个归并方法`reduce()`和`reduceRight()`这两个方法都会**遍历数组的每一项**，**并有一个最终返回值**。
 
-#### 1.2.1 <font face="Hack">`reduce()`</font>
+#### 1.2.1 `reduce()`
 
 这个方法会接受两个参数：
 
-- 第一个参数为**针对每一项都会执行的归并方法**：<br/> 这个方法可以接受四个参数：**上一个归并值**、**当前项**、**当前项的索引**和**数组本身**，这个函数的返回值将会作为下一次归并时该函数的第一个参数，所以当`reduce()`没有接收到可选的第二个参数时，归并将会从数组的第二项开始，
+- 第一个参数为**针对每一项都会执行的归并方法**：
+
+  这个方法可以接受四个参数：**上一个归并值**、**当前项**、**当前项的索引**和**数组本身**，这个函数的返回值将会作为下一次归并时该函数的第一个参数，所以当`reduce()`没有接收到可选的第二个参数时，归并将会从数组的第二项开始，
 
 - 第二个参数为**可选的**以其为起点的初始值。
 
@@ -75,7 +77,7 @@ const array_1 = [1, 2, 3, 4];
 console.log(array_1.reduce((prev, cur, index, array) => prev + cur)); // 10
 ```
 
-#### 1.2.2 <font face="Hack">`reduceRight()`</font>
+#### 1.2.2 `reduceRight()`
 
 而`reduceRight()`方法的操作与`reduce()`方法相同，只是遍历元素的方向是**从最后一项到第一项而已**，其余的没有任何区别。
 
@@ -88,7 +90,7 @@ console.log(array_1.reduceRight((prev, cur, index, array) => prev + cur)); // 10
 
 `sort()`和`reverse()`都会返回调用它们的数组的引用，即**此方法会改变原数组**
 
-#### 1.3.1 <font face="Hack">`sort()`</font>
+#### 1.3.1 `sort()`
 
 `sort()`方法可以接收一个可选的**比较函数**，用于判断哪个值应该被排在前面。这个比较函数接受两个参数，如果第一个参数**想要被排在前面就返回一个负值**，**反之则返回一个正值**。
 
@@ -99,7 +101,7 @@ array_2.sort(compare);
 console.log(array_2); // [ 1, 2, 3, 4 ]
 ```
 
-#### 1.3.2 <font face="Hack">`reverse()`</font>
+#### 1.3.2 `reverse()`
 
 `reverse()`方法会将调用它的数组元素**反向逆序排列**。
 
@@ -352,7 +354,7 @@ console.log(array_1.includes(3, 5)); // false
 
 `find()` 方法的参数和数组的迭代方法的参数一样，返回数组中**满足提供的测试函数（`callback`）**的**第一个元素的值**
 
-`find`方法对数组中的每一项元素执行一次 `callback` 函数，直至有一个 `callback` 返回 `true`。当找到了这样一个元素后，该方法会立即返回这个元素的值，否则返回 `undefined`
+`find` 方法对数组中的每一项元素执行一次 `callback` 函数，直至有一个 `callback` 返回 `true`。当找到了这样一个元素后，该方法会立即返回这个元素的值，否则返回 `undefined`
 
 ```javascript
 // array_1 = [1, 2, 3, 4, 3, 2, 1];
@@ -362,7 +364,7 @@ console.log(number_1); // 3
 
 #### 1.6.5 `findIndex()`
 
-`findIndex()`方法返回数组中**满足提供的测试函数（`callback`）**的**第一个元素的索引**（注意区别返回的是索引）。若没有找到对应元素则返回`-1`。
+`findIndex()` 方法返回数组中**满足提供的测试函数（`callback`）**的**第一个元素的索引**（注意区别返回的是索引）。若没有找到对应元素则返回 `-1`。
 
 ```javascript
 // array_1 = [1, 2, 3, 4, 3, 2, 1];
@@ -376,11 +378,11 @@ console.log(number_2); // 2
 
 ## 二、然后是 `Array` 的静态方法
 
-### 2.1 <font face="Hack">`Array.from()`</font>
+### 2.1 Array.from()`
 
-`Array.from()`方法可以接受最多三个参数，第一个参数为一个**类数组对象**(即可迭代，或者是有`length`属性同时存在可索引属性)，第二个参数为可选参数，是一个**映射函数**参数，还有可选的第三个参数，用于**指定映射函数参数中的`this`指向**。
+`Array.from()` 方法可以接受最多三个参数，第一个参数为一个**类数组对象**(即可迭代，或者是有`length`属性同时存在可索引属性)，第二个参数为可选参数，是一个**映射函数**参数，还有可选的第三个参数，用于**指定映射函数参数中的 `this` 指向**。
 
-`Array.from()`方法可以传入的参数包括**数组**、`Map`和`Set`的实例等
+`Array.from() `方法可以传入的参数包括**数组**、`Map` 和 `Set` 的实例等
 
 ```javascript
 const arr = Array.from([1, 2, 3, 4, 5]); // 传入一个数组
@@ -395,7 +397,7 @@ console.log(Array.from(_map)); // [ [ 1, 2 ], [ 3, 4 ] ]
 console.log(Array.from(_set)); // [ 1, 2, 3, 4 ]
 ```
 
-`Array.from()`方法也可以传入`arguments`和**可迭代对象**
+`Array.from()` 方法也可以传入 `arguments` 和**可迭代对象**
 
 ```javascript
 function func() {
@@ -413,7 +415,7 @@ const obj = {
 console.log(Array.from(obj)); // [ 0, 1, 2, 3 ]
 ```
 
-`Array.from()`方法还可以用于对现有数组进行**深拷贝**（关于深浅拷贝可以参见文章[【JS】深拷贝与浅拷贝的区别，实现深拷贝的几种方法](https://www.cnblogs.com/echolun/p/7889848.html)）
+`Array.from()` 方法还可以用于对现有数组进行**深拷贝**（关于深浅拷贝可以参见文章[【JS】深拷贝与浅拷贝的区别，实现深拷贝的几种方法](https://www.cnblogs.com/echolun/p/7889848.html)）
 
 ```javascript
 const arr_1 = [1, 2, 3, 4];
@@ -425,7 +427,7 @@ console.log(arr_3); // [ 1, 2, 3, 4 ]
 console.log(arr_1 === arr_3); // false
 ```
 
-### 2.2 <font face="Hack">`Array.of()`</font>
+### 2.2 Array.of()`
 
 `Array.of()`方法用于将**一组参数**转化为**数组**，这个方法可以用于替代 ES6 之前常用的`Array.prototype.slice.call(arguments)`，对比起来这种方法就显得有些繁杂了
 
@@ -436,7 +438,7 @@ console.log(arr_4); // [ 1, 2, 3, 4 ]
 console.log(arr_5); // [ 1, '2', true, undefined ]
 ```
 
-### 2.3 <font face="Hack">`Array.isArray()`</font>
+### 2.3 `Array.isArray()`
 
 这个方法的目的就是**确定一个值是否为数组**，返回一个**布尔值**
 
@@ -445,7 +447,17 @@ console.log(Array.isArray([1, 2, 3])); // true
 console.log(Array.isArray({ a: 1, b: 2, c: 3 })); // false
 ```
 
-## 三、Last
+## 三、数组空位的处理
+
+- `forEach()`, `filter()`, `every()` 和 `some()` 都会跳过空位。
+- `map()` 会跳过空位，但会保留这个值
+- `join()` 和 `toString()` 会将空位视为 `undefined`，而 `undefined` 和 `null` 会被处理成空字符串
+- ES6 明确将空位转为 `undefined`, `Array.from` 方法会将数组的空位转为 `undefined`
+- 扩展运算符 `...` 也会将空位转为 `undefined`
+- `for...of` 循环也会遍历空位
+- `entries()`、`keys()`、`values()`、`find()` 和 `findIndex()` 会将空位处理成 `undefined`
+
+## 四、Last
 
 如果有任何疑问欢迎在评论区友好交流呦 😆。
 

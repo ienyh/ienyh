@@ -4,6 +4,93 @@
 
 - [https://www.w3school.com.cn/index.html](https://www.w3school.com.cn/index.html)
 
+## css 选择器优先级
+
+1. `!important` 加在样式属性值后，权重值为 **10000**
+2. **内联样式**，如 `style=""`，权重值为 **1000**
+3. **ID 选择器**，如 `#content`，权重值为 **100**
+4. **类、伪类和属性选择器**，如 `.content` `:hover` 权重值为 **10**
+5. **标签选择器和伪元素选择器**，如 `div` `::before` 权重值为 **1**
+6. *通用选择器 `*`、子选择器 `>`、相邻选择器 `+`、同胞选择器 `~`**，**权重值为 **0**
+
+## css 变量
+
+### 声明变量
+
+声明变量的时候，变量名前面要加两根连词线（`--`）
+
+```css
+body {
+  --foo: #7F583F;
+  --bar: #F7EFD2;
+}
+```
+
+各种值都可以放入 CSS 变量。
+
+```css
+:root{
+  --main-color: #4d4e53;
+  --main-bg: rgb(255, 255, 255);
+  --logo-border-color: rebeccapurple;
+
+  --header-height: 68px;
+  --content-padding: 10px 20px;
+
+  --base-line-height: 1.428571429;
+  --transition-duration: .35s;
+  --external-link: "external link";
+  --margin-top: calc(2vh + 20px);
+}
+```
+
+变量名大小写敏感，`--header-color` 和 `--Header-Color`是两个不同变量。
+
+### `var()`
+
+`var()`函数用于读取变量。
+
+```css
+a {
+  color: var(--foo);
+  text-decoration-color: var(--bar);
+}
+```
+
+`var()`函数还可以使用第二个参数，表示变量的默认值。如果该变量不存在，就会使用这个默认值。
+
+```css
+color: var(--foo, #7F583F);
+```
+
+第二个参数不处理内部的逗号或空格，都视作参数的一部分。
+
+```css
+var(--font-stack, "Roboto", "Helvetica");
+var(--pad, 10px 15px 20px);
+```
+
+`var()` 函数还可以用在变量的声明。
+
+```css
+:root {
+  --primary-color: red;
+  --logo-text: var(--primary-color);
+}
+```
+
+注意，变量值只能用作属性值，不能用作属性名。
+
+```css
+.foo {
+  --side: margin-top;
+  /* 无效 */
+  var(--side): 20px;
+}
+```
+
+上面代码中，变量 `--side` 用作属性名，这是无效的。
+
 ## css 单位
 
 ### 绝对长度单位
@@ -411,3 +498,4 @@ text-shadow: h-shadow v-shadow blur color;
 | `none`       | 不对替换的内容调整大小。                                     |
 | `scale-down` | 调整内容大小就像没有指定内容或包含内容一样（将导致较小的具体对象尺寸） |
 
+ 
